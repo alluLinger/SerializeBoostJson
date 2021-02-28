@@ -1,0 +1,3 @@
+[submodule "3rdparty/boostjson"]
+	path = 3rdparty/boostjson
+	url = http://github.com/boostorg/json.git
