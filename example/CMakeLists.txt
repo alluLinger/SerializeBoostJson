@@ -5,11 +5,15 @@ project(SerializeBoostJson LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(..
-    ../3rdparty/boostjson/include)
+set(BOOST_JSON_STANDALONE on)
 
-add_compile_definitions(BOOST_JSON_STANDALONE)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../3rdparty/boostjson ${CMAKE_CURRENT_BINARY_DIR}/3rdparty/boostjson)
+
+include_directories(../)
 
 add_executable(TestSerializeBoostJson
-    ../3rdparty/boostjson/src/src.cpp
     main.cpp)
+
+target_link_libraries(TestSerializeBoostJson
+    boost_json
+    )
